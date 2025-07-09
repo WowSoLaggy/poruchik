@@ -1,12 +1,12 @@
 import dotenv from 'dotenv';
 
-import { get_players_list } from './api.js';
+import { on_request } from './api.js';
 
 
 
 async function main() {
   try {
-    const players = await get_players_list();
+    const players = await on_request();
     console.log('Players:', players);
   } catch (error) {
     console.error('Error:', error);
