@@ -1,0 +1,24 @@
+{
+  "name": "poruchik",
+  "version": "1.2.0",
+  "main": "src/api.js",
+  "description": "backend for pref stats site",
+  "keywords": [
+    "russian preference",
+    "preferans",
+    "statistics"
+  ],
+  "author": "WowSoLaggy wowsolaggy@gmail.com",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WowSoLaggy/poruchik.git"
+  },
+  "scripts": {
+    "test": "node src/test.js"
+  },
+  "dependencies": {
+    "ydb_api": "github:WowSoLaggy/ydb_api"
+  }
+}
