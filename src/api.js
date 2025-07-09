@@ -1,8 +1,8 @@
-import { get_players } from './utils/players.js';
-import { destroy } from './utils/ydb.js';
+const { get_players } = require('./utils/players.js');
+const { destroy } = require('./utils/ydb.js');
 
 
-export async function on_request(event) {
+async function on_request(event) {
   
   console.log(event);
 
@@ -13,3 +13,8 @@ export async function on_request(event) {
     await destroy();
   }
 }
+
+
+module.exports = {
+  on_request
+};

@@ -1,6 +1,6 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 
-import { on_request } from './api.js';
+const { on_request } = require('./api.js');
 
 
 

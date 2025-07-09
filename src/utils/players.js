@@ -1,10 +1,10 @@
-import { get as get_ydb } from './ydb.js';
+const { get : get_ydb } = require('./ydb.js');
 
 
 let _cache = null;
 
 
-export async function get_players() {
+async function get_players() {
   if (!_cache) {
     const query = `SELECT * FROM \`pref/players_tbl\``;
 
@@ -19,3 +19,8 @@ export async function get_players() {
 
   return _cache;
 }
+
+
+module.exports = {
+  get_players
+};

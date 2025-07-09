@@ -1,16 +1,24 @@
-import ydb_api from 'ydb_api';
+const ydb_api = require('ydb_api');
+
 
 let ydb = null;
 
-export async function get() {
+
+async function get() {
   if (!ydb)
     ydb = await new ydb_api().init();
   return ydb;
 }
 
-export async function destroy() {
+async function destroy() {
   if (ydb) {
     await ydb.destroy();
     ydb = null;
   }
 }
+
+
+module.exports = {
+  get,
+  destroy
+};
