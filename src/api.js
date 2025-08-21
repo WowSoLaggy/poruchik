@@ -40,6 +40,18 @@ async function form_api_response(response_payload) {
   };
 }
 
+async function form_bad_api_response(error_message) {
+  console.log('func call \'form_bad_api_response\'');
+  console.error('Error message: ', error_message);
+  return {
+    statusCode: 400,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ error: error_message })
+  };
+}
+
 
 async function on_request(event) {
   try {
@@ -47,9 +59,21 @@ async function on_request(event) {
     console.log(JSON.stringify(event));
 
     const action = await get_action_name(event);
-    const response = await run_action(action);
+    const response_payload = await run_action(action);
 
-    return await form_api_response(response);
+    const response = await form_api_response(response_payload);
+    console.log('Sending response');
+    console.log(JSON.stringify(response));
+    
+    return response;
+
+  } catch (error) {
+    console.error('Error processing request:', error);
+    const response = await form_bad_api_response(error.message);
+    console.log('Sending error response');
+    console.log(JSON.stringify(response));
+    return response;
+
   } finally {
     await destroy();
   }
