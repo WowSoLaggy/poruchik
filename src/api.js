@@ -10,6 +10,9 @@ async function on_request(event) {
   console.log('LOG PARAMS')
   console.log(event.params);
   console.log('LOG PARAMS END')
+  console.log('LOG PROXY PATH')
+  console.log(event.params.proxy);
+  console.log('LOG PROXY PATH END')
 
   try {
     const players_list = await get_players();
