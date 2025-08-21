@@ -7,7 +7,7 @@ const { on_request } = require('./api.js');
 async function main() {
   try {
     const players = await on_request();
-    console.log('Players:', players);
+    console.log(players);
   } catch (error) {
     console.error('Error:', error);
   }
